@@ -154,8 +154,72 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  const numberWords = {
+    0: 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    '-': 'minus',
+    '.': 'point',
+    ',': 'point',
+  };
+  let result = '';
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const char = numberStr[i];
+    if (i > 0) {
+      result += ' ';
+    }
+    switch (char) {
+      case '0':
+        result += `${numberWords['0']}`;
+        break;
+      case '1':
+        result += `${numberWords['1']}`;
+        break;
+      case '2':
+        result += `${numberWords['2']}`;
+        break;
+      case '3':
+        result += `${numberWords['3']}`;
+        break;
+      case '4':
+        result += `${numberWords['4']}`;
+        break;
+      case '5':
+        result += `${numberWords['5']}`;
+        break;
+      case '6':
+        result += `${numberWords['6']}`;
+        break;
+      case '7':
+        result += `${numberWords['7']}`;
+        break;
+      case '8':
+        result += `${numberWords['8']}`;
+        break;
+      case '9':
+        result += `${numberWords['9']}`;
+        break;
+      case '-':
+        result += `${numberWords['-']}`;
+        break;
+      case '.':
+      case ',':
+        result += `${numberWords['.']}`;
+        break;
+      default:
+        result += 'unknown';
+        break;
+    }
+  }
+  return result;
 }
 
 /**
